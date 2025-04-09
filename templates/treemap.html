@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Disaster Losses by Type – Treemap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/treemap.css') }}">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>💸 Disaster Losses by Type</h1>
+  </header>
+
+  <nav>
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('trends') }}">Disasters Over the Years</a>
+    <a href="{{ url_for('climate') }}">Climate</a>
+    <a href="{{ url_for('map') }}">Chloropleth</a>
+    <a href="{{ url_for('bar') }}">Barchart</a>
+    <a href="{{ url_for('pie') }}">PieChart</a>
+    <a href="{{ url_for('stacked') }}">Stacked</a>
+    <a href="{{ url_for('scatterplot') }}">ScatterPlot</a>
+    <a href="{{ url_for('race') }}">BarRace</a>
+    <a href="{{ url_for('treemap') }}">Tree Map</a>
+  </nav>
+
+  <main>
+    <div class="filter-controls">
+        <label for="country-filter">Country:</label>
+        <select id="country-filter"><option value="All">All Countries</option></select>
+
+        <label for="year-filter">Year:</label>
+        <select id="year-filter"><option value="All">All Years</option></select>
+      </div>
+
+    <div id="treemap"></div>
+  </main>
+
+  <footer>
+    &copy; 2025 Global Disaster Insights
+  </footer>
+
+  <!--<script src="treemap.js"></script>-->
+  <script defer src="{{ url_for('static', filename='js/treemap.js') }}"></script>
+</body>
+</html>

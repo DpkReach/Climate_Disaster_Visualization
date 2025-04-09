@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Top 10 Countries Bar Chart</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <!--<script type="module" src="static/js/sharedData.js"></script>
+  <script defer src="{{ url_for('static', filename='js/bar.js') }}"></script>
+  <script defer src="{{ url_for('static', filename='js/bar1.js') }}"></script> -->
+  <script type="module" src="{{ url_for('static', filename='js/bar.js') }}"></script>
+  <script type="module" src="{{ url_for('static', filename='js/bar1.js') }}"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>📊 Top 10 Countries by Disaster Metrics</h1>
+  </header>
+
+  <nav>
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('trends') }}">Disasters Over the Years</a>
+    <a href="{{ url_for('climate') }}">Climate</a>
+    <a href="{{ url_for('map') }}">Chloropleth</a>
+    <a href="{{ url_for('bar') }}">Barchart</a>
+    <a href="{{ url_for('pie') }}">PieChart</a>
+    <a href="{{ url_for('stacked') }}">Stacked</a>
+    <a href="{{ url_for('scatterplot') }}">ScatterPlot</a>
+    <a href="{{ url_for('race') }}">BarRace</a>
+    <a href="{{ url_for('treemap') }}">Tree Map</a>
+  </nav>
+
+  <main>
+    <section style="text-align: center; margin-bottom: 1em;">
+      <label for="barMetric">Select Metric:</label>
+      <select id="barMetric">
+        <option value="Total Deaths">Total Deaths</option>
+        <option value="Total Events">Total Events</option>
+        <option value="Total Damage (USD, adjusted)">Total Damage</option>
+      </select>
+    </section>
+
+    <section>
+      <div id="bar-chart"></div>
+    </section>
+  </main>
+
+  <footer style="text-align: center; margin-top: 2em; padding: 1em; background: #2c3e50; color: white;">
+    &copy; 2025 Global Disaster Insights
+  </footer>
+
+</body>
+</html>

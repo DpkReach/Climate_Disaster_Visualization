@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Global Disaster Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/topojson-client@3"></script>
+  <script type="module" src="{{ url_for('static', filename='js/loadData.js') }}"></script>
+</head>
+<body>
+
+  <header>
+    <h1>🌍 Global Disaster Dashboard</h1>
+  </header>
+
+  <nav>
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('trends') }}">Disasters Over the Years</a>
+    <a href="{{ url_for('climate') }}">Climate</a>
+    <a href="{{ url_for('map') }}">Chloropleth</a>
+    <a href="{{ url_for('bar') }}">Barchart</a>
+    <a href="{{ url_for('pie') }}">PieChart</a>
+    <a href="{{ url_for('stacked') }}">Stacked</a>
+    <a href="{{ url_for('scatterplot') }}">ScatterPlot</a>
+    <a href="{{ url_for('race') }}">BarRace</a>
+    <a href="{{ url_for('treemap') }}">Tree Map</a>
+  </nav>
+
+  <main>
+    <section id="country">
+      <h2>🗺️ Country View</h2>
+      <div id="map"></div>
+      <div class="tooltip" style="opacity:0;"></div>
+    </section>
+
+    <section id="disaster-type">
+      <h2>🌪️ Disaster Types</h2>
+      <p>Visual comparisons between disaster types by impact and frequency.</p>
+    </section>
+
+    <section id="trends">
+      <h2>📈 Trends Over Time</h2>
+      <p>Time series analysis of disasters, environmental metrics, and more.</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Global Disaster Insights. Built with D3.js
+  </footer>
+
+</body>
+</html>

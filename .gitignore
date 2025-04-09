@@ -1,0 +1,35 @@
+# Ignore virtual environments
+env/
+venv/
+ENV/
+.venv/
+.pyvenv/
+
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore environment variables
+.env
+
+# Ignore logs and databases
+*.log
+*.sqlite3
+
+# Ignore IDE/editor settings
+.vscode/
+.idea/
+
+# Ignore compiled files
+*.so
+*.egg
+*.egg-info/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore node_modules if you're using JS libraries
+node_modules/
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scatter Plots - Climate & Disaster Insights</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/scatter.css') }}">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+
+
+  <header>
+    <h1>✨ Climate-Based Scatter Plots by Disaster Type</h1>
+  </header>
+
+
+  <nav>
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('trends') }}">Disasters Over the Years</a>
+    <a href="{{ url_for('climate') }}">Climate</a>
+    <a href="{{ url_for('map') }}">Chloropleth</a>
+    <a href="{{ url_for('bar') }}">Barchart</a>
+    <a href="{{ url_for('pie') }}">PieChart</a>
+    <a href="{{ url_for('stacked') }}">Stacked</a>
+    <a href="{{ url_for('scatterplot') }}">ScatterPlot</a>
+    <a href="{{ url_for('race') }}">BarRace</a>
+    <a href="{{ url_for('treemap') }}">Tree Map</a>
+  </nav>
+  <main>
+    <div class="dropdown-container">
+        <select id="type-dropdown"></select>
+      </div>
+    <div class="chart-grid">
+        <div id="chart1" class="scatter-box"></div>
+        <div id="chart2" class="scatter-box"></div>
+        <div id="chart3" class="scatter-box"></div>
+        <div id="chart4" class="scatter-box"></div>
+    </div>
+
+  </main>
+  <footer>
+    &copy; 2025 Global Disaster Insights
+  </footer>
+
+  <!--<script src="scatter.js"></script> -->
+  <script defer src="{{ url_for('static', filename='js/scatter.js') }}"></script>
+</body>
+</html>

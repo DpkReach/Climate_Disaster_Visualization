@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Country View</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/topojson-client@3"></script>
+  <script defer src="{{ url_for('static', filename='js/map.js') }}"></script>
+</head>
+<body>
+
+  <header>
+    <h1>🗺️ Country View</h1>
+  </header>
+
+  <nav>
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('trends') }}">Disasters Over the Years</a>
+    <a href="{{ url_for('climate') }}">Climate</a>
+    <a href="{{ url_for('map') }}">Chloropleth</a>
+    <a href="{{ url_for('bar') }}">Barchart</a>
+    <a href="{{ url_for('pie') }}">PieChart</a>
+    <a href="{{ url_for('stacked') }}">Stacked</a>
+    <a href="{{ url_for('scatterplot') }}">ScatterPlot</a>
+    <a href="{{ url_for('race') }}">BarRace</a>
+    <a href="{{ url_for('treemap') }}">Tree Map</a>
+  </nav>
+
+  <main>
+    <section>
+        <div style="text-align: center; margin-bottom: 1em;">
+            <label for="yearFilter">Select Year:</label>
+            <select id="yearFilter"></select>
+
+            <label for="eventFilter" style="margin-left: 1em;">Select Disaster Type:</label>
+            <select id="eventFilter"></select></div>
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Global Disaster Insights
+  </footer>
+
+</body>
+</html>
