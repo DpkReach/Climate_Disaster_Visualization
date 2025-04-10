@@ -182,7 +182,7 @@ body {
   }
 
   .grid-item {
-    background-color: #f9f9f9;
+    background-color: #eef6ff;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -192,7 +192,7 @@ body {
 
   .grid-item:hover {
     transform: scale(1.02);
-    background-color: #eef6ff;
+    background-color: #a26262;
   }
 
   .grid-item strong {
@@ -209,41 +209,53 @@ footer {
 
 #tableau-section {
     width: 100%;
-    padding: 20px;
+    padding: 22px;
+    background-color: #f4f7fa; /* Light background for the entire section */
 }
 
 .section-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Split the section into two equal columns */
+    gap: 40px;
 }
 
 .section-left, .section-right {
-    flex: 1; /* Ensures both sections take up equal space */
-    padding: 20px;
-    border: 1px solid #ccc; /* Add a border for better visibility */
-    background-color: #f9f9f9; /* Optional background color */
+    padding: 10px;
+    background: linear-gradient(145deg, #6a11cb, #2575fc); /* Gradient background */
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    color: white; /* White text for better contrast */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 180px;
+    transition: transform 0.3s ease; /* Animation for hover effect */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.section-left:hover, .section-right:hover {
+    transform: translateY(-10px); /* Lift the section on hover */
 }
 
 .grid-item h2 {
     font-size: 24px;
-    color: #333;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .grid-item p {
     font-size: 16px;
-    color: #555;
+    margin-bottom: 10px;
+    opacity: 0.85;
 }
 
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
+@media (max-width: 768px) {
+    .section-container {
+        grid-template-columns: 1fr; /* Stack the sections on smaller screens */
+    }
 
-.btn:hover {
-    background-color: #0056b3;
+    .section-left, .section-right {
+        height: auto; /* Allow height to adjust on smaller screens */
+    }
 }
