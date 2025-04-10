@@ -45,5 +45,9 @@ def race():
 def treemap():
     return render_template('treemap.html')
 
+@app.route('/severity')
+def severity():
+    return render_template('severity.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

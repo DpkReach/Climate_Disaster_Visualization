@@ -1,13 +1,15 @@
 import { loadClimateData } from './loadData.js';
 
-const margin = { top: 40, right: 30, bottom: 100, left: 80 },
-      width = 960 - margin.left - margin.right,
-      height = 500 - margin.top - margin.bottom;
+const margin = { top: 40, right: 30, bottom: 100, left: 80 };
+const container = document.getElementById("bar-chart");
+
+let width = container.clientWidth - margin.left - margin.right;
+let height = window.innerHeight * 0.65 - margin.top - margin.bottom;
 
 const svg = d3.select("#bar-chart")
   .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
+  .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+  .attr("preserveAspectRatio", "xMidYMid meet")
   .append("g")
   .attr("transform", `translate(${margin.left},${margin.top})`);
 
@@ -23,12 +25,7 @@ const tooltip = d3.select("#bar-chart")
   .style("pointer-events", "none")
   .style("visibility", "hidden");
 
-//const barDataUrl = "https://gist.githubusercontent.com/revanth122/5bb10be6a6860d69857887789d3f8d02/raw/8a1382b383588253eb3160fcffec078f77531c7c/merged.csv";
-
-//d3.tsv(barDataUrl).then(data => {
-
 loadClimateData().then(data => {
-  // Clean data
   data.forEach(d => {
     d["Total Deaths"] = +d["Total Deaths"] || 0;
     d["Total Events"] = +d["Total Events"] || 0;
@@ -83,25 +80,22 @@ loadClimateData().then(data => {
       .on("mousemove", (event, d) => {
         tooltip
           .style("visibility", "visible")
-          .style("top", (event.pageY - 40) + "px")
-          .style("left", (event.pageX + 20) + "px")
+          .style("top", `${event.pageY - 50}px`)
+          .style("left", `${event.pageX + 15}px`)
           .html(`<strong>${d.type}</strong><br/>${metric}: ${Math.round(d.value).toLocaleString()}`);
       })
       .on("mouseout", () => {
-        tooltip.style("position", "absolute");
+        tooltip.style("visibility", "hidden");
       });
   }
 
-  // Initialize chart
   updateChart("Total Deaths");
 
-  // Dropdown listener
   metricSelect.addEventListener("change", function () {
     updateChart(this.value);
   });
 });
 
-// Optional: Add dropdown if not already in HTML
 function createDropdown() {
   const label = document.createElement("label");
   label.textContent = "Select Metric:";
@@ -120,7 +114,6 @@ function createDropdown() {
     select.appendChild(option);
   });
 
-  const container = document.getElementById("bar-chart");
   container.prepend(label);
   container.prepend(select);
 

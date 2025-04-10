@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Disaster Losses by Type – Treemap</title>
+  <title>Disaster Severity Bar Chart</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/treemap.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/severity.css') }}">
   <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
 
   <header>
-    <h1>💸 Disaster Losses by Type</h1>
+    <h1>📊 Disaster Severity: Events vs Deaths (Grouped Bar Chart)</h1>
   </header>
 
   <nav>
@@ -28,22 +28,21 @@
   </nav>
 
   <main>
-    <div class="filter-controls">
-        <label for="country-filter">Country:</label>
-        <select id="country-filter"><option value="All">All Countries</option></select>
+    <div class="filter-wrapper">
+      <label for="severity-bar-type">Disaster Type:</label>
+      <select id="severity-bar-type">
+        <option value="All">All Types</option>
+      </select>
+    </div>
 
-        <label for="year-filter">Year:</label>
-        <select id="year-filter"><option value="All">All Years</option></select>
-      </div>
-
-    <div id="treemap"></div>
+    <div id="severity-bar-chart"></div>
   </main>
 
   <footer>
     &copy; 2025 Global Disaster Insights
   </footer>
 
-  <!--<script src="treemap.js"></script>-->
-  <script defer src="{{ url_for('static', filename='js/treemap.js') }}"></script>
+  <!--<script src="severity.js"></script> -->
+  <script defer src="{{ url_for('static', filename='js/severity.js') }}"></script>
 </body>
 </html>

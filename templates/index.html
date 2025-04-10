@@ -18,32 +18,91 @@
   <nav>
     <a href="{{ url_for('index') }}">Home</a>
     <a href="{{ url_for('trends') }}">Disasters Over the Years</a>
-    <a href="{{ url_for('climate') }}">Climate</a>
-    <a href="{{ url_for('map') }}">Chloropleth</a>
-    <a href="{{ url_for('bar') }}">Barchart</a>
-    <a href="{{ url_for('pie') }}">PieChart</a>
-    <a href="{{ url_for('stacked') }}">Stacked</a>
-    <a href="{{ url_for('scatterplot') }}">ScatterPlot</a>
-    <a href="{{ url_for('race') }}">BarRace</a>
-    <a href="{{ url_for('treemap') }}">Tree Map</a>
+    <a href="{{ url_for('climate') }}">Climate Indicators Over years</a>
+    <a href="{{ url_for('map') }}">Disaster type of each Country Over years </a>
+    <a href="{{ url_for('bar') }}">Deaths Events & Damages</a>
+    <a href="{{ url_for('pie') }}">Disaster distribution</a>
+    <a href="{{ url_for('stacked') }}">Heat Map</a>
+    <a href="{{ url_for('scatterplot') }}">ScatterPlot for events</a>
+    <a href="{{ url_for('race') }}">country wise events over years</a>
+    <a href="{{ url_for('treemap') }}">Event occurence for country on year</a>
+    <a href="{{ url_for('severity') }}">Disaster type over years</a>
   </nav>
 
   <main>
-    <section id="country">
-      <h2>🗺️ Country View</h2>
-      <div id="map"></div>
-      <div class="tooltip" style="opacity:0;"></div>
+    <section id="tableau-section" class="dashboard-section">
+    <div class="section-container">
+        <!-- Left Section -->
+        <div class="section-left">
+            <div class="grid-item">
+                <h2>Interactive Tableau Dashboard 1</h2>
+                <p>Click the link below to explore the Climate Over view during disaster.</p>
+                <a href="https://public.tableau.com/app/profile/radhakrishna.revanth.boddupalli/viz/project1_17442594904070/Climateoverviewduringdisasters" target="_blank" class="btn">ClimateOverView</a>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="section-right">
+            <div class="grid-item">
+                <h2>Interactive Tableau Dashboard 2</h2>
+                <p>Click the link below to explore the economic impact Analysis.</p>
+                <a href="https://public.tableau.com/app/profile/radhakrishna.revanth.boddupalli/viz/project1_1_17442595837560/EconomicImpactAnalysis" target="_blank" class="btn">EconomicImpactAnalysis</a>
+            </div>
+        </div>
+    </div>
+</section>
+    <section id="disaster-grid" class="dashboard-section">
+      <h2>🌋 Natural Disaster Events</h2>
+      <div class="grid-container">
+        <div class="grid-item">
+          <strong>Drought</strong>
+          <p>Prolonged periods of low rainfall causing water shortages and crop failures.</p>
+        </div>
+        <div class="grid-item">
+          <strong>Earthquake</strong>
+          <p>Sudden ground shaking due to tectonic shifts beneath the Earth’s surface.</p>
+        </div>
+        <div class="grid-item">
+          <strong>Extreme Temperature</strong>
+          <p>Unusually high or low temperatures impacting health, agriculture, and energy.</p>
+        </div>
+        <div class="grid-item">
+          <strong>Flood</strong>
+          <p>Overflow of water submerging land, often from heavy rainfall or river overflow.</p>
+        </div>
+        <div class="grid-item">
+          <strong>Glacial Lake Outburst</strong>
+          <p>Sudden release of water from a glacial lake, often causing flash floods downstream.</p>
+        </div>
+        <div class="grid-item">
+          <strong>Insect Infestation</strong>
+          <p>Large outbreaks of pests damaging crops and spreading disease.</p>
+        </div>
+        <div class="grid-item">
+          <strong>Landslide</strong>
+          <p>Downhill movement of rock, earth, or debris triggered by rain, quakes, or erosion.</p>
+        </div>
+        <div class="grid-item">
+          <strong>Mass Movement (Dry)</strong>
+          <p>Gravity-driven dry movements like rockfalls or debris flows without water triggers.</p>
+        </div>
+        <div class="grid-item">
+          <strong>Storm</strong>
+          <p>Severe weather events including hurricanes, cyclones, and thunderstorms.</p>
+        </div>
+        <div class="grid-item">
+          <strong>Volcanic Activity</strong>
+          <p>Eruptions of magma, gas, and ash from Earth’s crust, disrupting nearby areas.</p>
+        </div>
+        <div class="grid-item">
+          <strong>Wildfire</strong>
+          <p>Uncontrolled fires spreading through forests or grasslands, often due to heat or drought.</p>
+        </div>
     </section>
 
-    <section id="disaster-type">
-      <h2>🌪️ Disaster Types</h2>
-      <p>Visual comparisons between disaster types by impact and frequency.</p>
-    </section>
 
-    <section id="trends">
-      <h2>📈 Trends Over Time</h2>
-      <p>Time series analysis of disasters, environmental metrics, and more.</p>
-    </section>
+
+
   </main>
 
   <footer>
