@@ -49,5 +49,14 @@ def treemap():
 def severity():
     return render_template('severity.html')
 
+@app.route('/tableau1')
+def tableau1():
+    return render_template('tableau1.html')
+
+@app.route('/tableau2')
+def tableau2():
+    return render_template('tableau2.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
