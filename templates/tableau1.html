@@ -3,13 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Dashboard 1</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
+  <div class="dashboard-container">
+
+
   <h2>Tableau Dashboard 1: Climate Overview</h2>
+  <button class="back-button" onclick="goBack()">
+    <span class="arrow">←</span> Back
+  </button>
   <iframe src="https://public.tableau.com/views/project1_17442594904070/Climateoverviewduringdisasters?:embed=y&:display_count=yes&:showVizHome=no"
           width="100%"
           height="700"
-          style="border: none;">
+          style="border: 30px;">
   </iframe>
+  </div>
+  <footer>
+    &copy; 2025 Global Disaster Insights
+  </footer>
+  <script>
+    function goBack() {
+      window.history.back(); // You can also use: window.history.go(-1);
+    }
+  </script>
+
 </body>
 </html>
