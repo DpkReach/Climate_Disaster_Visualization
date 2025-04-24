@@ -15,8 +15,11 @@ const duration = 1000;
 
 let yearIndex = 0;
 let years = [];
-let allData = {}; // Format: allData[year][type] = [ [country, total], ... ]
+let allData = {};
 let currentType = "All";
+
+let isPlaying = false;
+let interval;
 
 // Tooltip
 const tooltip = d3.select("body")
@@ -41,9 +44,7 @@ d3.tsv(tsvUrl).then(rawData => {
       .text(type);
   });
 
-  // Group data by year and type
   const yearGroups = d3.group(rawData, d => +d.Year);
-
   years = Array.from(yearGroups.keys()).sort();
 
   years.forEach(year => {
@@ -52,7 +53,6 @@ d3.tsv(tsvUrl).then(rawData => {
 
     allData[year] = {};
 
-    // Store totals for each type
     typeGroups.forEach((records, type) => {
       allData[year][type] = d3.rollups(
         records,
@@ -61,15 +61,12 @@ d3.tsv(tsvUrl).then(rawData => {
       );
     });
 
-    // Also add "All" group
     allData[year]["All"] = d3.rollups(
       entries,
       v => d3.sum(v, d => +d["Total Events"] || 0),
       d => d.Country
     );
   });
-
-  animate();
 });
 
 // Update chart for given year/type
@@ -148,9 +145,11 @@ function updateChart(data, year) {
 
 // Animate over years
 function animate() {
-  const interval = d3.interval(() => {
+  interval = d3.interval(() => {
     if (yearIndex >= years.length) {
       interval.stop();
+      isPlaying = false;
+      d3.select("#toggle-animation").text("Start");
       return;
     }
 
@@ -164,9 +163,23 @@ function animate() {
   }, duration);
 }
 
+// Toggle button logic
+d3.select("#toggle-animation").on("click", () => {
+  if (!isPlaying) {
+    isPlaying = true;
+    d3.select("#toggle-animation").text("Stop");
+    animate();
+  } else {
+    isPlaying = false;
+    d3.select("#toggle-animation").text("Start");
+    interval.stop();
+  }
+});
+
 // React to dropdown change
 d3.select("#disaster-type").on("change", function () {
   currentType = this.value;
   yearIndex = 0;
-  animate();
+  if (interval) interval.stop();
+  if (isPlaying) animate();
 });

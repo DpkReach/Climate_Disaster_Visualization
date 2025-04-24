@@ -14,6 +14,7 @@
   </header>
 
   <nav>
+
     <a href="{{ url_for('index') }}">Home</a>
     <a href="{{ url_for('trends') }}">Disasters Over the Years</a>
     <a href="{{ url_for('climate') }}">Climate Indicators Over years</a>
@@ -25,15 +26,18 @@
     <a href="{{ url_for('race') }}">country wise events over years</a>
     <a href="{{ url_for('treemap') }}">Event occurence for country on year</a>
     <a href="{{ url_for('severity') }}">Disaster type over years</a>
+
+
+
   </nav>
 
   <main>
-    <div class="filter-container">
-      <label for="disaster-type">Filter by Disaster Type:</label>
-      <select id="disaster-type">
-        <option value="All">All Types</option>
-        <!-- Options will be populated dynamically -->
-      </select>
+
+    <select id="disaster-type"></select>
+    <button id="toggle-animation">Start</button>
+    <div id="bar-race"></div>
+
+
     </div>
 
     <div id="bar-race"></div>
